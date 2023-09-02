@@ -12,7 +12,6 @@ const MovieList = ({ title, movies }) => {
           ))}
         </div>
       </div>
-      <MovieCard />
     </div>
   );
 };
