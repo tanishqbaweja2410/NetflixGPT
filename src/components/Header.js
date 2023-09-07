@@ -14,6 +14,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const selectedLanguage = useSelector((store) => store.config.lang);
 
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const handleSignOut = () => {
@@ -68,7 +69,7 @@ const Header = () => {
               onChange={handleLanguageChange}
             >
               {SUPPORTED_LANGUAGES.map((lang) => (
-                <option key={lang.identifier} value={lang.identifier}>
+                <option key={lang.identifier} value={lang.identifier} selected={lang.identifier == selectedLanguage}>
                   {lang.name}
                 </option>
               ))}
