@@ -7,7 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
-import { toggleGptSearchView } from "../utils/gptSlice";
+import { clearGptSearch, toggleGptSearchView } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
@@ -18,6 +18,7 @@ const Header = () => {
 
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const handleSignOut = () => {
+    dispatch(clearGptSearch());
     signOut(auth)
       .then(() => {})
       .catch((error) => {
